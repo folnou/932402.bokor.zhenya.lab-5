@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список фильмов - Бокор Евгений</title>
+    <link rel="stylesheet" href="stylelab5.css">
+    <link rel="stylesheet" href="lab5.css">
+</head>
+<body>
+
+    <header>
+        <h1>Бокор Евгений</h1>
+        <p>Любитель кино и сериалов</p>
+        <nav>
+            <ul>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#films">Топ фильмов</a></li>
+                <li><a href="#directors">Режиссёры</a></li>
+                <li><a href="#watchlist">Мой список</a></li>
+                <li><a href="#contact">Обратная связь</a></li>
+            </ul>
+        </nav>
+        <button type="button" id="themeToggle" class="theme-btn">Светлая тема</button>
+    </header>
+
+    <main>
+        <section class="img-box">
+            <img src="image/photo.jpg" alt="Cinema">
+            <span class="badge">Cinema</span>
+        </section>
+
+        <section id="skills">
+            <h2>Навыки</h2>
+            <ul>
+                <li>Сценарный анализ</li>
+                <li>Импровизация</li>
+                <li>Анализ графики</li>
+            </ul>
+        </section>
+
+        <section id="films">
+            <h2>Топ фильмов для просмотра</h2>
+            <div class="cards">
+                <article class="card">
+                    <img src="image/poster1.jpg" alt="Зелёный фонарь">
+                    <div>
+                        <h3>Зелёный фонарь</h3>
+                        <p>Фантастический боевик</p>
+                        <p>Жанр: фантастика</p>
+                        <p>Год: 2011</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="image/poster2.jpg" alt="Всеведущий читатель">
+                    <div>
+                        <h3>Всеведущий читатель</h3>
+                        <p>Мистический сериал</p>
+                        <p>Жанр: фэнтези</p>
+                        <p>Год: 2025</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="image/poster3.jpg" alt="Живая сталь">
+                    <div>
+                        <h3>Живая сталь</h3>
+                        <p>Спортивная драма</p>
+                        <p>Жанр: фантастика</p>
+                        <p>Год: 2011</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="image/poster4.jpg" alt="Колобок">
+                    <div>
+                        <h3>Колобок</h3>
+                        <p>Семейная комедия</p>
+                        <p>Жанр: мультфильм</p>
+                        <p>Год: 2026</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="directors">
+            <h2>Любимые режиссёры</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="image/director1.jpg" alt="Кристофер Нолан">
+                    <figcaption>Кристофер Нолан<br>Знаковый фильм: «Начало»</figcaption>
+                </figure>
+                <figure>
+                    <img src="image/director2.jpg" alt="Дени Вильнёв">
+                    <figcaption>Дени Вильнёв<br>Знаковый фильм: «Дюна»</figcaption>
+                </figure>
+                <figure>
+                    <img src="image/director3.jpg" alt="Питер Джексон">
+                    <figcaption>Питер Джексон<br>Знаковый фильм: «Властелин колец»</figcaption>
+                </figure>
+                <figure>
+                    <img src="image/director4.jpg" alt="Джеймс Кэмерон">
+                    <figcaption>Джеймс Кэмерон<br>Знаковый фильм: «Аватар»</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="watchlist">
+            <h2>Мой список к просмотру</h2>
+
+            <form id="filmForm" class="film-form" novalidate>
+                <div class="form-group">
+                    <label for="filmTitle">Название:</label>
+                    <input type="text" id="filmTitle" name="filmTitle" placeholder="Например, Интерстеллар">
+                </div>
+                <div class="form-group">
+                    <label for="filmYear">Год:</label>
+                    <input type="number" id="filmYear" name="filmYear" placeholder="2014">
+                </div>
+                <div class="form-group">
+                    <label for="filmStatus">Статус:</label>
+                    <select id="filmStatus" name="filmStatus">
+                        <option value="к просмотру">к просмотру</option>
+                        <option value="просмотрено">просмотрено</option>
+                    </select>
+                </div>
+                <div class="film-buttons">
+                    <button type="submit" id="addBtn">Добавить фильм</button>
+                    <button type="button" id="clearBtn" class="danger">Очистить список</button>
+                    <button type="button" id="toggleTableBtn">Скрыть таблицу</button>
+                </div>
+            </form>
+
+            <p id="formMessage" class="form-message" role="status"></p>
+            <p id="filmStats" class="film-stats"></p>
+
+            <div id="tableWrap" class="table-wrap">
+                <table id="filmTable">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Год</th>
+                            <th>Статус</th>
+                            <th>Действие</th>
+                        </tr>
+                    </thead>
+                    <tbody id="filmsBody"></tbody>
+                </table>
+                <p id="emptyNote" class="empty-note" hidden>Список пуст. Добавьте первый фильм!</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Обратная связь</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+
+        <aside>
+            <h3>Любимые жанры</h3>
+            <p>Фэнтези и фантастика</p>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Бокор Евгений</p>
+        <a href="#">Главная</a>
+    </footer>
+
+    <script src="lab5.js" defer></script>
+</body>
+</html>
